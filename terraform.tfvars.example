@@ -1,0 +1,9 @@
+# Copy this file to terraform.tfvars and update with your values
+
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+zone       = "us-central1-a"
+name_prefix = "simple-vm"
+machine_type = "e2-micro"
+ssh_user = "ubuntu"
+# ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAA... your-public-key-here"

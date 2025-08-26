@@ -27,10 +27,16 @@ variable "machine_type" {
   default     = "e2-micro"
 }
 
-variable "image" {
-  description = "The image to use for the VM instance"
+variable "image_project" {
+  description = "The image project to use for the VM instance"
   type        = string
-  default     = "ubuntu-os-cloud/ubuntu-2004-lts"
+  default     = "ubuntu-os-cloud"
+}
+
+variable "image_family" {
+  description = "The image family to use for the VM instance"
+  type        = string
+  default     = "ubuntu-2404-lts-amd64"
 }
 
 variable "disk_size" {

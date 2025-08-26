@@ -27,6 +27,11 @@ provider "google-beta" {
   zone    = var.zone
 }
 
+data "google_compute_image" "ubuntu" {
+  family  = "ubuntu-2404-lts-amd64"
+  project = "ubuntu-os-cloud"
+}
+
 # Create a VPC network using the standard google provider
 resource "google_compute_network" "vpc_network" {
   name                    = "${var.name_prefix}-vpc"
@@ -87,7 +92,7 @@ resource "google_compute_instance" "vm_instance" {
 
   boot_disk {
     initialize_params {
-      image = var.image
+      image = data.google_compute_image.ubuntu.self_link
       size  = var.disk_size
       type  = "pd-standard"
     }
